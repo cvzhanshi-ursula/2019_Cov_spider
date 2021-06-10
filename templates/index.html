@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<script src="../static/js/jquery-3.5.1.min.js" >
+  	</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>COVID-19 Trends</title>
+    <style>
+      html, body { height: 100%; }
+      #chart_container { height: 90% }
+      .trends-chart { display:inline-block; width:100%; height:400px; padding-bottom: 30px; }
+      .single-chart { display:inline-block; width:100%; height:100%; padding-bottom: 30px; }
+      .summary-chart { display:inline-block; width:100%; height:400px; padding-bottom: 30px; }
+      @media only screen and (min-width: 800px) {
+        .trends-chart { width: 50% }
+        .summary-chart { width: 50% }
+      }
+      @media only screen and (min-width: 1200px) {
+        .trends-chart { width: 50% }
+      }
+      @media only screen and (min-width: 2000px) {
+        .trends-chart { width: 33% }
+      }
+    </style>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="../static/img/logo.png">
+    <script>
+    	$(document).ready(function(){
+				$("#b1").click(function(){
+					$("#frame2").attr("src","http://127.0.0.1:5000/map_china");
+					$("#frame2").css("padding-left","350px");
+					$("#frame2").css("margin-top","50px");
+				});
+				$("#b2").click(function(){
+					$("#frame2").attr("src","http://127.0.0.1:5000/map_world");
+					$("#frame2").css("padding-left","350px");
+					$("#frame2").css("margin-top","50px");
+				});
+				$("#b3").click(function(){
+					$("#frame2").attr("src","http://127.0.0.1:5000/sumdata");
+					$("#frame2").css("padding-left","180px");
+					$("#frame2").css("margin-top","50px");
+				});
+				$("#b4").click(function(){
+					$("#frame2").attr("src","http://127.0.0.1:5000/tables");
+					$("#frame2").css("padding-left","10px");
+					$("#frame2").css("margin-top","0px");
+				});
+				$("#b5").click(function(){
+					$("#frame2").attr("src","http://127.0.0.1:5000/tables2");
+					$("#frame2").css("padding-left","10px");
+					$("#frame2").css("margin-top","0px");
+				});
+				$("#b6").click(function(){
+					$("#frame2").attr("src","http://127.0.0.1:5000/tables3");
+					$("#frame2").css("padding-left","10px");
+					$("#frame2").css("margin-top","0px");
+					return false;
+				});
+				$("#b7").click(function(){
+					$("#frame2").attr("src","http://127.0.0.1:5000/first");
+					$("#frame2").css("padding-left","100px");
+					$("#frame2").css("margin-top","50px");
+				});
+			});
+    </script>
+  </head>
+  <body >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+      <a class="navbar-brand" href="#k">
+        <img src="../static/img/logo.png" width="30" height="30" class="d-inline-block align-center" alt="">
+        COVID19.DATA
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav mr-auto" id="navbar">
+            <li class="nav-item">
+          	<a class="nav-link" href="#" id="b7">首页</a>
+          </li>
+          <li class="nav-item" id="b1">
+            <a class="nav-link dropdown" href="#" >全国疫情</a>
+          </li>
+          <li class="nav-item" id="b2">
+            <a class="nav-link" href="#">全球疫情</a>
+          </li>
+          <li class="nav-item">
+          	<a class="nav-link" href="#" id="b3">中国趋势</a>
+          </li>
+          <li class="nav-item">
+          	<a class="nav-link" href="#" id="b4">全国数据总览</a>
+          </li>
+          <li class="nav-item">
+          	<a class="nav-link" href="#" id="b5">全球数据总览</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 mr-2">
+          <input id="textbox" class="form-control mr-sm-2" type="search" placeholder="国家/省份" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" id="b6">搜索</button>
+        </form>
+
+      </div>
+    </nav>
+
+    <div class="container-fluid" id="chart_container">
+
+			<iframe id="frame2" src="/first" style="border:0px;width: 100%;height: 90%;padding-left: 100px;margin-top: 50px">
+
+			</iframe>
+    </div>
+  </body>
+</html>

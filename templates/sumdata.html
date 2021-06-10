@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="../static/js/jquery-3.5.1.min.js" >
+			
+		</script>
+		<script>
+			var s = ["china_daily","dead_heal","provinces_nowConfirm","provinces_today","provinces_total"];
+			var num = 0;
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#b1").click(function(){
+				    num--;
+					if(num>=0){
+
+						$("#frame1").fadeOut(500,function(){
+							$("#frame1").attr("src","http://127.0.0.1:5000/"+ s[num] ).fadeIn(500)
+						});
+
+					}
+					else if(num <0){
+					    num = s.length-1
+                        $("#frame1").fadeOut(500,function(){
+							$("#frame1").attr("src","http://127.0.0.1:5000/"+ s[num] ).fadeIn(500)
+						});
+                    }
+
+
+				})
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#b2").click(function(){
+				    num++;
+					if(num<=s.length-1){
+						$("#frame1").fadeOut(500,function(){
+							$("#frame1").attr("src","http://127.0.0.1:5000/"+s[num]).fadeIn(500)
+						});
+					}
+					else if(num>s.length-1){
+					    num = 0
+                        $("#frame1").fadeOut(500,function(){
+							$("#frame1").attr("src","http://127.0.0.1:5000/"+s[num]).fadeIn(500)
+						});
+                    }
+
+				})
+			});
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<div align="center" style="width: 100%;">
+				<div style="float: left;">
+					<img src="../static/img/left.png" height="100%" width="20%"style="margin-top: 200px;"id="b1"/>
+				</div>
+				<div style="float: left;">
+					<iframe
+						id="frame1"
+						src="http://127.0.0.1:5000/china_daily"
+						width="840px"
+						height="500px"
+						scrolling="no"
+						style="border: none;">
+					</iframe>
+				</div>
+				<div style="float: left;">
+					<img src="../static/img/right.png" height="100%" width="20%"style="margin-top: 200px;"id="b2"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
